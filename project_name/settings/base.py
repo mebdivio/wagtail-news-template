@@ -187,23 +187,23 @@ CACHES = {
 # Check for either DEFAULT_* (Divio) or AWS_* environment variables
 
 # AWS_STORAGE_BUCKET_NAME: The name of the S3 bucket to use for storage.
-AWS_STORAGE_BUCKET_NAME = os.environ.get('DEFAULT_STORAGE_BUCKET') or os.environ.get('AWS_STORAGE_BUCKET_NAME', '')
+AWS_STORAGE_BUCKET_NAME = os.environ.get("DEFAULT_STORAGE_BUCKET", "") or os.environ.get("AWS_STORAGE_BUCKET_NAME", "")
 
 # AWS_ACCESS_KEY_ID: The access key ID for authenticating with AWS S3.
-AWS_ACCESS_KEY_ID = os.environ.get('DEFAULT_STORAGE_ACCESS_KEY_ID') or os.environ.get('AWS_ACCESS_KEY_ID', '')
+AWS_ACCESS_KEY_ID = os.environ.get("DEFAULT_STORAGE_ACCESS_KEY_ID", "") or os.environ.get("AWS_ACCESS_KEY_ID", "")
 
 # AWS_SECRET_ACCESS_KEY: The secret access key for authenticating with AWS S3.
-AWS_SECRET_ACCESS_KEY = os.environ.get('DEFAULT_STORAGE_SECRET_ACCESS_KEY') or os.environ.get('AWS_SECRET_ACCESS_KEY', '')
+AWS_SECRET_ACCESS_KEY = os.environ.get("DEFAULT_STORAGE_SECRET_ACCESS_KEY", "") or os.environ.get("AWS_SECRET_ACCESS_KEY", "")
 
 # We generally use this setting in the production to put the S3 bucket
 # behind a CDN using a custom domain, e.g. media.llamasavers.com.
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#cloudfront
-AWS_S3_CUSTOM_DOMAIN = os.environ.get('DEFAULT_STORAGE_CUSTOM_DOMAIN') or os.environ.get('AWS_S3_CUSTOM_DOMAIN', '')
+AWS_S3_CUSTOM_DOMAIN = os.environ.get("DEFAULT_STORAGE_CUSTOM_DOMAIN", "") or os.environ.get("AWS_S3_CUSTOM_DOMAIN", "")
 
 # When signing URLs is facilitated, the region must be set, because the
 # global S3 endpoint does not seem to support that. Set this only if 
 # necessary.
-AWS_S3_REGION_NAME = os.environ.get('DEFAULT_STORAGE_REGION') or os.environ.get('AWS_S3_REGION_NAME', '')
+AWS_S3_REGION_NAME = os.environ.get("DEFAULT_STORAGE_REGION", "") or os.environ.get("AWS_S3_REGION_NAME", "")
 
 # Customize the endpoint, for non-AWS environments
 AWS_S3_ENDPOINT_URL = os.environ.get("AWS_S3_ENDPOINT_URL", "")
@@ -238,8 +238,8 @@ if AWS_STORAGE_BUCKET_NAME:
 
     # Additional S3 object parameters
     AWS_S3_OBJECT_PARAMETERS = {
-        'ACL': 'public-read',
-        'CacheControl': 'max-age=86400',
+        "ACL": "public-read",
+        "CacheControl": "max-age=86400",
     }
 
     # Limit how large a file can be spooled into memory before it's written to disk.
